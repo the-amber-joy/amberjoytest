@@ -25,8 +25,8 @@ module.exports = function(grunt) {
                     "angular/angular.min.js",
                     "angular/angular.min.js.map",
                     "angular/angular-csp.css",
-                    //"bootstrap/*.*",
-                    //"bootstrap/**/*.*"
+                    "bootstrap/*.*",
+                    "bootstrap/**/*.*"
                 ],
                 "dest": "server/public/vendors/"
             }
