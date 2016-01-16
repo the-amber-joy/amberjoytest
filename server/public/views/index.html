@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>GitHub API Service</title>
+    <link rel="stylesheet" href="../vendors/bootstrap/dist/css/bootstrap.min.css">
     <script src="vendors/angular/angular.min.js"></script>
     <script src="assets/scripts/client.min.js"></script>
 </head>
 <body ng-controller="MyController">
     <!--<p ng-controller="MyController">{{greeting}}</p>-->
-    <div ng-repeat="file in gitIt.data">
-        <div class="well">{{file.repo.name}}</div>
+    <div class="well col-sm-4" ng-repeat="file in gitIt.data">
+        <p><a ng-href="http://www.github.com/{{file.repo.name}}">{{file.repo.name}}</a></p>
     </div>
 </body>
 </html>
