@@ -6,8 +6,10 @@
     <script src="vendors/angular/angular.min.js"></script>
     <script src="assets/scripts/client.min.js"></script>
 </head>
-<body>
+<body ng-controller="MyController">
     <!--<p ng-controller="MyController">{{greeting}}</p>-->
-    <p ng-controller="MyController">{{gitIt}}</p>
+    <div ng-repeat="file in gitIt.data">
+        <div>{{file.repo.name}}</div>
+    </div>
 </body>
 </html>

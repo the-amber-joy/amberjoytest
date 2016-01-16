@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-//var gitHubUsername = 'the-amber-joy';
+
 
 app.use(express.static('server/public'));
 
