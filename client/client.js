@@ -1,10 +1,13 @@
 var app = angular.module('myApp', []);
 var gitHubUsername = 'the-amber-joy';
 
-app.controller('MyController', ['$scope', 'GitService', function($scope, GitService){
+
+app.controller('MyController', ['$scope', "$sce", 'GitService', function($scope, $sce, GitService){
+    $scope.symbol = $sce.trustAsHtml("&Theta;");
     $scope.gitIt = GitService.data;
     GitService.makeCall();
 }]);
+
 
 app.factory('GitService', ['$http', function($http){
     var gitData = {};
