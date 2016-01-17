@@ -2,8 +2,7 @@ var app = angular.module('myApp', []);
 var gitHubUsername = 'the-amber-joy';
 
 
-app.controller('MyController', ['$scope', "$sce", 'GitService', function($scope, $sce, GitService){
-    $scope.symbol = $sce.trustAsHtml("&Theta;");
+app.controller('MyController', ['$scope', 'GitService', function($scope, GitService){
     $scope.gitIt = GitService.data;
     GitService.makeCall();
 }]);
