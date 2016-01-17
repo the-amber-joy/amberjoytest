@@ -1,0 +1,16 @@
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #DAE5E3;
+}
+.table-striped > tbody > tr:nth-of-type(even) {
+    background-color: #809E9B;
+}
+.table-hover > tbody > tr:hover {
+    background-color: #337277;
+    color: white;
+}
+a {
+    color: #761c19;
+}
+a:hover {
+    color: #00ACB0;
+}
