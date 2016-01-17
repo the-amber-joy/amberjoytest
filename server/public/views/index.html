@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../vendors/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/styles/stylesheet.css">
     <script src="vendors/angular/angular.min.js"></script>
+    <!--<script src="../../../node_modules/angular-filter/dist/angular-filter.min.js"></script>-->
     <script src="assets/scripts/client.min.js"></script>
 </head>
 <body ng-controller="MyController">
@@ -23,10 +24,11 @@
         </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="file in gitIt.data">
+        <!--<tr ng-repeat="file in gitIt.data | unique: 'repo.id'"> still trying to get this angular filter thing to work-->
+            <tr ng-repeat="file in gitIt.data" >
                 <td>{{file.id}}</td>
                 <td>{{file.type}}</td>
-                <td><a ng-href="{{file.repo.url}}">{{file.repo.name}}</a></td>
+                <td><a ng-href="http://www.github.com/{{file.repo.name}}">{{file.repo.name}}</a></td>
                 <td>{{file.repo.id}}</td>
                 <td>{{file.payload.commits[0].message}}</td>
             </tr>

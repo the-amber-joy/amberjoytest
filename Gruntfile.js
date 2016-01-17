@@ -22,6 +22,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: "node_modules/",
                 src: [
+                    "angular-filter/angular-filter.min.js",
                     "angular/angular.min.js",
                     "angular/angular.min.js.map",
                     "angular/angular-csp.css",
