@@ -1,9 +1,24 @@
+<<<<<<< HEAD
 var app = angular.module('myApp', []); //['angular.filter'] Still trying to get ths angular filter thing to work...
+=======
+var app = angular.module('myApp', []);
+
+var gitHubUsername = '';
+
+>>>>>>> factoryExperiments
 
 app.controller('MyController', ['$scope', 'GitService', function ($scope, GitService) {
-    $scope.gitIt = GitService.data;
-    GitService.makeCall();
-    }]);
+
+    $scope.gitHubUsername = '';
+
+    $scope.submitRequest = function(){
+        console.log(gitHubUsername);
+        gitHubUsername = $scope.gitHubUsername;
+        GitService.makeCall();
+        $scope.gitIt = GitService.data;
+    }
+
+}]);
 
 // ANGULAR SERVICES can be pulled in ANYWHERE, they return an object... this is like in NODE when we require node module exports - they exist in one place but can be called on from ANYWHERE
 
