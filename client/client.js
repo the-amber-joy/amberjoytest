@@ -1,9 +1,18 @@
-var app = angular.module('myApp', []);
+var app = angular.module('myApp', ['ngRoute']);
 
 var gitHubUsername = '';
 
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
+    $routeProvider
+        .when('/answers', {
+            templateUrl:'views/answers.html',
+            controller: 'MyController'
+        });
 
-app.controller('MyController', ['$scope', 'GitService', function ($scope, GitService) {
+    $locationProvider.html5Mode(true);
+}]);
+
+app.controller('MyController', ['$scope', 'GitService', 'AnswerService', function ($scope, GitService, AnswerService) {
 
     $scope.gitHubUsername = '';
     $scope.displayResults = false;
@@ -17,7 +26,6 @@ app.controller('MyController', ['$scope', 'GitService', function ($scope, GitSer
 
 }]);
 
-// ANGULAR SERVICES can be pulled in ANYWHERE, they return an object... this is like in NODE when we require node module exports - they exist in one place but can be called on from ANYWHERE
 
 app.factory('GitService', ['$http', function($http){
     var gitData = {};
@@ -25,7 +33,6 @@ app.factory('GitService', ['$http', function($http){
     var makeCall = function(){
         $http.jsonp('https://api.github.com/users/' + gitHubUsername + '/events?callback=JSON_CALLBACK').then(function(response){
             gitData.data = response.data.data;
-            console.log(gitData);
         });
     };
 
@@ -34,5 +41,3 @@ app.factory('GitService', ['$http', function($http){
         data: gitData
     };
 }]);
-
-//factories always expect to output/make public/return their information in the form of OBJECTS

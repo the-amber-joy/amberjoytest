@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="../vendors/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/styles/stylesheet.css">
     <script src="vendors/angular/angular.min.js"></script>
-
+    <script src="vendors/angular-route/angular-route.min.js"></script>
     <script src="assets/scripts/client.min.js"></script>
+    <base href="/">
+
 </head>
 
 <body ng-controller="MyController">
@@ -20,6 +22,8 @@
     <input type="text" placeholder="GitHub Username" ng-model="gitHubUsername">
     <input type="submit">
 </form>
+
+<ng-view></ng-view>
 
 <div ng-show="displayResults">
     <table class="table table-hover table-striped">

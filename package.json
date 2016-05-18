@@ -12,6 +12,8 @@
   "dependencies": {
     "angular": "^1.4.8",
     "angular-filter": "^0.5.8",
+    "angular-route": "^1.5.5",
+    "body-parser": "^1.15.1",
     "express": "^4.13.3",
     "path": "^0.12.7"
   },
