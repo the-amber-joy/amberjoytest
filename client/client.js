@@ -12,7 +12,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $locationProvider.html5Mode(true);
 }]);
 
-app.controller('MyController', ['$scope', 'GitService', 'AnswerService', function ($scope, GitService, AnswerService) {
+app.controller('MyController', ['$scope', 'GitService', function ($scope, GitService) {
 
     $scope.gitHubUsername = '';
     $scope.displayResults = false;
