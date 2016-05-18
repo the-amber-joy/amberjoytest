@@ -1,11 +1,20 @@
-var app = angular.module('myApp', []); // ['angular.filter'] Still trying to get ths angular filter thing to work...
-var gitHubUsername = 'the-amber-joy';
+var app = angular.module('myApp', []);
+
+var gitHubUsername = '';
 
 
 app.controller('MyController', ['$scope', 'GitService', function ($scope, GitService) {
-    $scope.gitIt = GitService.data;
-    GitService.makeCall();
-    }]);
+
+    $scope.gitHubUsername = '';
+
+    $scope.submitRequest = function(){
+        console.log(gitHubUsername);
+        gitHubUsername = $scope.gitHubUsername;
+        GitService.makeCall();
+        $scope.gitIt = GitService.data;
+    }
+
+}]);
 
 
 
