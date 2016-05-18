@@ -6,9 +6,10 @@ var gitHubUsername = '';
 app.controller('MyController', ['$scope', 'GitService', function ($scope, GitService) {
 
     $scope.gitHubUsername = '';
+    $scope.displayResults = false;
 
     $scope.submitRequest = function(){
-        console.log(gitHubUsername);
+        $scope.displayResults = true;
         gitHubUsername = $scope.gitHubUsername;
         GitService.makeCall();
         $scope.gitIt = GitService.data;
