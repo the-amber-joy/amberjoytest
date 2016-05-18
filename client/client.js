@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-var app = angular.module('myApp', []); //['angular.filter'] Still trying to get ths angular filter thing to work...
-=======
 var app = angular.module('myApp', []);
 
 var gitHubUsername = '';
 
->>>>>>> factoryExperiments
 
 app.controller('MyController', ['$scope', 'GitService', function ($scope, GitService) {
 
@@ -24,7 +20,6 @@ app.controller('MyController', ['$scope', 'GitService', function ($scope, GitSer
 
 app.factory('GitService', ['$http', function($http){
     var gitData = {};
-    var gitHubUsername = 'the-amber-joy';
 
     var makeCall = function(){
         $http.jsonp('https://api.github.com/users/' + gitHubUsername + '/events?callback=JSON_CALLBACK').then(function(response){
