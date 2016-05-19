@@ -7,21 +7,20 @@
     <table class="table table-hover table-striped">
         <thead>
         <tr>
-            <th>Event ID</th>
-            <th>Event Type</th>
-            <th>Repo Name & Link</th>
-            <th>Repo ID#</th>
-            <th>Commit Message</th>
+            <th>Repo Name &amp; Link</th>
+            <th>Description</th>
+            <th>Creation Date</th>
+            <th>Last Pushed Date</th>
+            <th>Deployment</th>
         </tr>
         </thead>
         <tbody>
 
         <tr ng-repeat="file in gitIt.data" >
-            <td>{{file.id}}</td>
-            <td>{{file.type}}</td>
-            <td><a ng-href="http://www.github.com/{{file.repo.name}}">{{file.repo.name}}</a></td>
-            <td>{{file.repo.id}}</td>
-            <td>{{file.payload.commits[0].message}}</td>
+            <td><a ng-href={{file.html_url}}>{{file.name}}</a></td>
+            <td>{{file.description}}</td>
+            <td>{{file.created_at | date}}</td>
+            <td>{{file.pushed_at | date}}</td>
         </tr>
         </tbody>
     </table>
