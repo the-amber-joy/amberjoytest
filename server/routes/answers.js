@@ -8,9 +8,11 @@ router.get('/', function (req, res) {
     //array of answers from JSON
     var answers = answerList.answers;
 
-    var answerIndex = randomNumber(0, answers.length);
+    //pick a random number to decide which answer to send
+    var theAnswer = randomNumber(0, answers.length);
 
-    res.send(answers[answerIndex].response);
+    console.log(answers[theAnswer].response);
+    return answers[theAnswer].response;
 
 });
 

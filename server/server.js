@@ -14,9 +14,6 @@ app.get('/', function(request, response){
     response.sendFile(__dirname + '/public/views/index.html');
 });
 
-//app.get('/answers', function(request, response){
-//    response.sendFile(__dirname + '/public/views/answers.html');
-//});
 
 var server = app.listen(3000, function(){
     var port = server.address().port;

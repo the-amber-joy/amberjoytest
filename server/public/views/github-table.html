@@ -1,0 +1,23 @@
+<div ng-show="displayResults">
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+            <th>Event ID</th>
+            <th>Event Type</th>
+            <th>Repo Name & Link</th>
+            <th>Repo ID#</th>
+            <th>Commit Message</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr ng-repeat="file in gitIt.data" >
+            <td>{{file.id}}</td>
+            <td>{{file.type}}</td>
+            <td><a ng-href="http://www.github.com/{{file.repo.name}}">{{file.repo.name}}</a></td>
+            <td>{{file.repo.id}}</td>
+            <td>{{file.payload.commits[0].message}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
