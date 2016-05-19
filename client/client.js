@@ -49,7 +49,6 @@ app.controller('MyController', ['$scope', '$location', '$http', 'GitService', fu
 
     $scope.getAnswer = function(){
         $http.get('/answers').success(function(response){
-            console.log(response);
             $scope.answer = response;
         });
     };
