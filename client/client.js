@@ -42,7 +42,7 @@ app.controller('MyController', ['$scope', '$location', '$window', '$http', 'GitS
 
     $scope.goToRepo = function(index){
         console.log("clicked:", $scope.gitIt.data[index].html_url);
-        $window.location.href = ($scope.gitIt.data[index].html_url);
+        $window.open($scope.gitIt.data[index].html_url, '_blank');
     };
 
     $scope.go8ball = function(){
