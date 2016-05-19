@@ -1,5 +1,3 @@
-var app = angular.module('ngRoute');
-
 app.controller('GitCtrl', ['$scope', '$window', 'GitService', function ($scope, $window, GitService) {
 
     $scope.gitIt = [];
