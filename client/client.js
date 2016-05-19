@@ -21,7 +21,7 @@ app.factory('GitService', ['$http', function($http){
     var makeCall = function(username){
         $http.jsonp('https://api.github.com/users/' + username + '/repos?callback=JSON_CALLBACK').then(function(response){
             gitData.data = response.data.data;
-            console.log(gitData.data);
+            // console.log(gitData.data);
         });
     };
 
@@ -41,7 +41,6 @@ app.controller('MyController', ['$scope', '$location', '$window', '$http', 'GitS
     };
 
     $scope.goToRepo = function(index){
-        console.log("clicked:", $scope.gitIt.data[index].html_url);
         $window.open($scope.gitIt.data[index].html_url, '_blank');
     };
 
