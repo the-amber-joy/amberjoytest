@@ -1,5 +1,5 @@
 var app = angular.module('myApp', ['ngRoute']);
-var gitHubUsername = '';
+//var gitHubUsername = '';
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
     $routeProvider
@@ -18,8 +18,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 app.factory('GitService', ['$http', function($http){
     var gitData = {};
 
-    var makeCall = function(){
-        $http.jsonp('https://api.github.com/users/' + gitHubUsername + '/events?callback=JSON_CALLBACK').then(function(response){
+    var makeCall = function(username){
+        $http.jsonp('https://api.github.com/users/' + username + '/events?callback=JSON_CALLBACK').then(function(response){
             gitData.data = response.data.data;
         });
     };
@@ -30,27 +30,29 @@ app.factory('GitService', ['$http', function($http){
     };
 }]);
 
-app.controller('MyController', ['$scope', 'GitService', function ($scope, GitService) {
+app.controller('MyController', ['$scope', '$location', 'GitService', function ($scope, $location, GitService) {
 
-    $scope.displayResults = false;
+    //$scope.displayResults = false;
 
     $scope.submitRequest = function(){
-        $scope.displayResults = true;
-        $scope.gitHubUsername;
-        GitService.makeCall();
+        //$scope.displayResults = true;
+        $location.path( "/github-table" )
+        GitService.makeCall($scope.gitHubUsername);
+        $scope.gitIt = GitService.data;
+
+
     };
 
 }]);
 
 app.controller('EightBallController', ['$scope', '$http', function ($scope, $http){
 
-    $scope.display8ball = false;
+    //$scope.display8ball = false;
     $scope.getAnswer = function(){
-        $scope.display8ball = true;
+        //$scope.display8ball = true;
         $scope.answers = "Answers will be here!";
         $http.get('/answers').then(function(response){
             console.log("response", response);
-            $scope.gitIt = GitService.data;
         });
     };
 
