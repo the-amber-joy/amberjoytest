@@ -15,8 +15,9 @@
         </thead>
         <tbody>
 
-        <tr ng-repeat="file in gitIt.data" >
-            <td><a ng-href={{file.html_url}}>{{file.name}}</a></td>
+        <tr ng-repeat="file in gitIt.data track by $index" ng-click="goToRepo($index)"">
+            <!-- <td><a ng-href={{file.html_url}}>{{file.name}}</a></td> -->
+            <td>{{file.name}}</td>
             <td>{{file.description}}</td>
             <td>{{file.created_at | date}}</td>
             <td>{{file.pushed_at | date}}</td>

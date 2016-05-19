@@ -32,10 +32,17 @@ app.factory('GitService', ['$http', function($http){
 }]);
 
 
-app.controller('MyController', ['$scope', '$location', '$http', 'GitService', function ($scope, $location, $http, GitService) {
+app.controller('MyController', ['$scope', '$location', '$window', '$http', 'GitService', function ($scope, $location, $window, $http, GitService) {
+
+    $scope.gitIt = [];
 
     $scope.goApi = function(){
         $location.path('/github-table');
+    };
+
+    $scope.goToRepo = function(index){
+        console.log("clicked:", $scope.gitIt.data[index].html_url);
+        $window.location.href = ($scope.gitIt.data[index].html_url);
     };
 
     $scope.go8ball = function(){
