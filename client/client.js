@@ -34,8 +34,9 @@ app.factory('BallService', ['$http', function($http){
     var answer = {};
 
     var ask = function(){
-        $http.jsonp('https://api.github.com/users/' + username + '/events?callback=JSON_CALLBACK').then(function(response){
-            gitData.data = response.data.data;
+        $http.get('/answers').success(function(response){
+            console.log("response:", response);
+            answer = response;
         });
     };
 
@@ -45,7 +46,7 @@ app.factory('BallService', ['$http', function($http){
     };
 }]);
 
-app.controller('MyController', ['$scope', '$location', '$http', 'GitService', function ($scope, $location, $http, GitService) {
+app.controller('MyController', ['$scope', '$location', '$http', 'GitService', 'BallService', function ($scope, $location, $http, GitService, BallService) {
 
     $scope.goApi = function(){
         $location.path('/github-table');
@@ -63,13 +64,15 @@ app.controller('MyController', ['$scope', '$location', '$http', 'GitService', fu
 
     $scope.getAnswer = function(){
 
-        $scope.answer = '';
+        BallService.ask();
+        $scope.answer = BallService.answer;
 
-        $http.get('/answers')
-            .then(function(response){
-                $scope.answers = response;
-                console.log("response", response);
-        });
+        console.log('answer?', BallService.answer);
+
+        //$http.get('/answers').success(function(response){
+        //    console.log(response);
+        //    $scope.answer = response;
+        //});
     };
 
 }]);

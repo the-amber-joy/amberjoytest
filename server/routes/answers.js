@@ -11,8 +11,8 @@ router.get('/', function (req, res) {
     //pick a random number to decide which answer to send
     var theAnswer = randomNumber(0, answers.length);
 
-    console.log(answers[theAnswer].response);
-    return answers[theAnswer].response;
+    //sends one random answer back when called
+    res.send(answers[theAnswer].response);
 
 });
 

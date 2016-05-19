@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
-var answers = require('./routes/answers')
+var answers = require('./routes/answers');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
