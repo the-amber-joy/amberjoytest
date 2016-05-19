@@ -1,4 +1,9 @@
-<div>
+<form ng-submit="submitRequest()">
+    <input type="text" placeholder="GitHub Username" ng-model="gitHubUsername">
+    <input type="submit">
+</form>
+
+<div ng-show="showTable">
     <table class="table table-hover table-striped">
         <thead>
         <tr>

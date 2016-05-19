@@ -18,15 +18,9 @@
     <h1>Angular Services & API Exercise <small>by Amber Joy</small></h1>
 </div>
 
-<form ng-submit="submitRequest()">
-    <input type="text" placeholder="GitHub Username" ng-model="gitHubUsername">
-    <input type="submit">
-</form>
+<button ng-click="goApi()">API Stuff</button>
 
-<form ng-submit="getAnswer()">
-    <input type="text" placeholder="Magic 8 Ball!">
-    <input type="submit">
-</form>
+<button ng-click="go8ball()">Magic 8 Ball</button>
 
 <ng-view></ng-view>
 

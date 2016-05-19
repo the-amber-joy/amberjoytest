@@ -32,16 +32,21 @@ app.factory('GitService', ['$http', function($http){
 
 app.controller('MyController', ['$scope', '$location', '$http', 'GitService', function ($scope, $location, $http, GitService) {
 
+    $scope.goApi = function(){
+        $location.path('/github-table');
+    };
+
+    $scope.go8ball = function(){
+        $location.path('/answers');
+    };
 
     $scope.submitRequest = function(){
-        $location.path('/github-table');
-
+        $scope.showTable = true;
         GitService.makeCall($scope.gitHubUsername);
         $scope.gitIt = GitService.data;
     };
 
     $scope.getAnswer = function(){
-        $location.path('/answers');
 
         $scope.answer = '';
 
