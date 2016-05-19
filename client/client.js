@@ -30,6 +30,21 @@ app.factory('GitService', ['$http', function($http){
     };
 }]);
 
+app.factory('BallService', ['$http', function($http){
+    var answer = {};
+
+    var ask = function(){
+        $http.jsonp('https://api.github.com/users/' + username + '/events?callback=JSON_CALLBACK').then(function(response){
+            gitData.data = response.data.data;
+        });
+    };
+
+    return {
+        ask: ask,
+        answer: answer
+    };
+}]);
+
 app.controller('MyController', ['$scope', '$location', '$http', 'GitService', function ($scope, $location, $http, GitService) {
 
     $scope.goApi = function(){
