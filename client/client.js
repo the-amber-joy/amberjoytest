@@ -5,7 +5,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $routeProvider
         .when('/answers', {
             templateUrl:'views/answers.html',
-            controller: 'EightBallController'
+            controller: 'MyController'
         })
         .when('/github-table', {
             templateUrl:'views/github-table.html',
@@ -30,29 +30,25 @@ app.factory('GitService', ['$http', function($http){
     };
 }]);
 
-app.controller('MyController', ['$scope', '$location', 'GitService', function ($scope, $location, GitService) {
+app.controller('MyController', ['$scope', '$location', '$http', 'GitService', function ($scope, $location, $http, GitService) {
 
-    //$scope.displayResults = false;
 
     $scope.submitRequest = function(){
-        //$scope.displayResults = true;
-        $location.path( "/github-table" )
+        $location.path('/github-table');
+
         GitService.makeCall($scope.gitHubUsername);
         $scope.gitIt = GitService.data;
-
-
     };
 
-}]);
-
-app.controller('EightBallController', ['$scope', '$http', function ($scope, $http){
-
-    //$scope.display8ball = false;
     $scope.getAnswer = function(){
-        //$scope.display8ball = true;
-        $scope.answers = "Answers will be here!";
-        $http.get('/answers').then(function(response){
-            console.log("response", response);
+        $location.path('/answers');
+
+        $scope.answer = '';
+
+        $http.get('/answers')
+            .then(function(response){
+                $scope.answers = response;
+                console.log("response", response);
         });
     };
 
