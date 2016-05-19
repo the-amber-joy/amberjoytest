@@ -30,23 +30,8 @@ app.factory('GitService', ['$http', function($http){
     };
 }]);
 
-app.factory('BallService', ['$http', function($http){
-    var answer = {};
 
-    var ask = function(){
-        $http.get('/answers').success(function(response){
-            console.log("response:", response);
-            answer = response;
-        });
-    };
-
-    return {
-        ask: ask,
-        answer: answer
-    };
-}]);
-
-app.controller('MyController', ['$scope', '$location', '$http', 'GitService', 'BallService', function ($scope, $location, $http, GitService, BallService) {
+app.controller('MyController', ['$scope', '$location', '$http', 'GitService', function ($scope, $location, $http, GitService) {
 
     $scope.goApi = function(){
         $location.path('/github-table');
@@ -63,16 +48,10 @@ app.controller('MyController', ['$scope', '$location', '$http', 'GitService', 'B
     };
 
     $scope.getAnswer = function(){
-
-        BallService.ask();
-        $scope.answer = BallService.answer;
-
-        console.log('answer?', BallService.answer);
-
-        //$http.get('/answers').success(function(response){
-        //    console.log(response);
-        //    $scope.answer = response;
-        //});
+        $http.get('/answers').success(function(response){
+            console.log(response);
+            $scope.answer = response;
+        });
     };
 
 }]);
