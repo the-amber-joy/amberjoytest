@@ -1,4 +1,4 @@
-app.controller('GitCtrl', ['$scope', '$window', 'GitService', function ($scope, $window, GitService) {
+app.controller('GitCtrl', ['$scope', '$window', 'GitFactory', function ($scope, $window, GitFactory) {
 
     $scope.gitIt = [];
     $scope.gitUser = {};
@@ -8,12 +8,11 @@ app.controller('GitCtrl', ['$scope', '$window', 'GitService', function ($scope, 
     };
 
     $scope.submitRequest = function(){
-        GitService.userCall($scope.gitHubUsername);
-        GitService.makeCall($scope.gitHubUsername);
-        $scope.gitIt = GitService.repos;
-        $scope.gitUser = GitService.gitUser;
+        GitFactory.userCall($scope.gitHubUsername);
+        GitFactory.makeCall($scope.gitHubUsername);
+        $scope.gitIt = GitFactory.repos;
+        $scope.gitUser = GitFactory.gitUser;
         $scope.showTable = true;
-        console.log($scope.gitUser);
     };
 
 }]);
