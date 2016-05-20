@@ -2,6 +2,7 @@ app.controller('GitCtrl', ['$scope', '$window', 'GitFactory', function ($scope, 
 
     $scope.gitIt = [];
     $scope.gitUser = {};
+    $scope.showTable = false;
 
     $scope.goToRepo = function(index){
         $window.open($scope.gitIt.data[index].html_url, '_blank');

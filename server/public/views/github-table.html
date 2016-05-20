@@ -3,6 +3,10 @@
     <input type="submit">
 </form>
 
+<div ng-hide="showTable">
+Practice calling an external API. Also, I felt like my understanding of Angular factories wasn't where I wanted it to be, but this exercise really helped.
+</div>
+
 <div ng-show="showTable">
     <h1><a ng-href="{{gitUser.data.html_url}}" target="_blank"><img src="{{gitUser.data.avatar_url}}" height="100px" display="inline"/> {{gitUser.data.name}}'s GitHub Repositories</a></h1>
     <table class="table table-hover table-striped">

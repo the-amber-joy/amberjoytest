@@ -2,7 +2,10 @@
     <input type="text" placeholder="Got a question?" ng-model="question">
     <input type="submit" value="Ask!">
 </form>
+<div ng-hide="showAnswer">
 This form doesn't actually do anything except show a random response when you click the button. Doesn't work in IE and I don't know why.
-<div>
+</div>
+
+<div ng-show="showAnswer">
     {{answer}}
 </div>
