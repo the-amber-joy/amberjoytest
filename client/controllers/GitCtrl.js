@@ -13,15 +13,3 @@ app.controller('GitCtrl', ['$scope', '$window', 'GitService', function ($scope, 
     };
 
 }]);
-
-// (function() {
-//     // 'use strict';
-//
-//     angular
-//         .module('myApp')
-//         .controller('GitController', GitController);
-//
-//     function GitController($scope, $window, GitService) {
-//
-//
-// })();

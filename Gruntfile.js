@@ -9,6 +9,8 @@ module.exports = function(grunt) {
                         'client/client.js',
                     'server/public/assets/scripts/controllers.min.js':
                         'client/controllers/*.js',
+                    'server/public/assets/scripts/directives.min.js':
+                        'client/directives/*.js',
                     'server/public/assets/scripts/factories.min.js':
                         'client/factories/*.js'
                 }
