@@ -1,5 +1,13 @@
 app.factory('GitService', ['$http', function($http){
+    var gitUser = {};
     var gitData = {};
+
+    var userCall = function(username){
+        $http.jsonp('https://api.github.com/users/' + username + '?callback=JSON_CALLBACK').then(function(response){
+            gitUser.data = response.data.data;
+            // console.log(gitUser);
+        });
+    };
 
     var makeCall = function(username){
         $http.jsonp('https://api.github.com/users/' + username + '/repos?callback=JSON_CALLBACK').then(function(response){
@@ -8,7 +16,9 @@ app.factory('GitService', ['$http', function($http){
     };
 
     return {
+        userCall: userCall,
         makeCall: makeCall,
-        data: gitData
+        repos: gitData,
+        gitUser: gitUser
     };
 }]);
