@@ -5,7 +5,7 @@ app.factory('GitFactory', ['$http', function($http){
     var userCall = function(username){
         $http.jsonp('https://api.github.com/users/' + username + '?callback=JSON_CALLBACK').then(function(response){
             gitUser.data = response.data.data;
-            // console.log(gitUser.data);
+            console.log(gitUser.data);
         });
     };
 
