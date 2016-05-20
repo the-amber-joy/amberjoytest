@@ -2,7 +2,7 @@ app.directive('helloWorld', function() {
     return {
         restrict: 'AE',
         replace: true,
-        template: '<p style="background-color:{{color}}">Hello World</p>',
+        template: '<p style="background-color:{{color}}">Type a color (word or hex code) in the box to see what happens. I did this while learning how to build Angular directives</p>',
         link: function(scope, elem, attrs) {
             elem.bind('click', function() {
                 elem.css('background-color', 'white');
