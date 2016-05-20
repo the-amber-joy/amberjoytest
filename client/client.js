@@ -25,16 +25,16 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 app.controller('MyCtrl', ['$scope', '$location', function ($scope, $location) {
 
-    $scope.goApi = function(){
-        $location.path('/github-table');
-    };
-
-    $scope.go8ball = function(){
-        $location.path('/answers');
-    };
-
-    $scope.goColors = function(){
-        $location.path('/colors');
-    };
+    // $scope.goApi = function(){
+    //     $location.path('/github-table');
+    // };
+    //
+    // $scope.go8ball = function(){
+    //     $location.path('/answers');
+    // };
+    //
+    // $scope.goColors = function(){
+    //     $location.path('/colors');
+    // };
 
 }]);
