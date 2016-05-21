@@ -1,4 +1,4 @@
-app.directive('helloWorld', function() {
+app.directive('colorText', function() {
     return {
         restrict: 'AE',
         replace: true,
