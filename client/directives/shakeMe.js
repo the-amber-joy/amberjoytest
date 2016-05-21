@@ -30,14 +30,14 @@ app.directive('shakeMe', function() {
                 elem.addClass('animated shake');
             });
 
-            // element.bind("click" , function(e){
-            //    element.parent().find("a").removeClass("enabled"); // Vanilla jqLite!
-            //    element.addClass("enabled");
-            // });
-
             elem.on('mouseover', function() {
                 elem.css('cursor', 'pointer');
             });
         }
     };
 });
+
+// element.bind("click" , function(e){
+//    element.parent().find("a").removeClass("enabled"); // Vanilla jqLite!
+//    element.addClass("enabled");
+// });
