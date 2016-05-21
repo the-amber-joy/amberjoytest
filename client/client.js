@@ -6,8 +6,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             templateUrl:'views/main.html',
             controller: 'MyCtrl',
         })
-        .when('/colors', {
-            templateUrl:'views/colors.html',
+        .when('/directives', {
+            templateUrl:'views/directives.html',
             controller: 'MyCtrl',
         })
         .when('/answers', {

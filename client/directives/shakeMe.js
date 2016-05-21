@@ -4,13 +4,13 @@ app.directive('helloWorld', function() {
         replace: true,
         template: '<p style="background-color:{{color}}">Type a color (word or hex code) in the box to see what happens. I did this while learning how to build Angular directives</p>',
         link: function(scope, elem, attrs) {
-            elem.bind('click', function() {
+            elem.on('click', function() {
                 elem.css('background-color', 'gold');
                 scope.$apply(function() {
                     scope.color = "gold";
                 });
             });
-            elem.bind('mouseover', function() {
+            elem.on('mouseover', function() {
                 elem.css('cursor', 'pointer');
             });
         }
@@ -23,13 +23,28 @@ app.directive('shakeMe', function() {
         replace: true,
         template: '<div class="{{class}}"><h3>Click Me!</h3></div>',
         link: function(scope, elem, attrs) {
-            elem.bind('click', function() {
-                elem.css('class', 'animated shake');
+            elem.on('click', function() {
                 scope.$apply(function() {
                     scope.class = "animated shake";
                 });
+                elem.addClass('animated shake');
+            })
+            .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                elem.removeClass({{class}});
+                scope.$apply(function() {
+                    scope.class = "";
+                });
             });
-            elem.bind('mouseover', function() {
+
+
+
+            // element.bind("click" , function(e){
+            //    element.parent().find("a").removeClass("enabled"); // Vanilla jqLite!
+            //    element.addClass("enabled");
+            // });
+
+
+            elem.on('mouseover', function() {
                 elem.css('cursor', 'pointer');
             });
         }
