@@ -1,0 +1,24 @@
+<form class="well col-md-4">
+    <input type="text" ng-model="color" placeholder="Enter a color" />
+    <hello-world/>
+    <br /> Also, try clicking the text above.
+</form>
+
+
+<form class="well col-md-4">
+    <label for="singleSelect"> Select one: </label>
+    <br>
+    <select name="singleSelect" ng-model="class">
+        <option value="animated shake">Shake</option>
+        <option value="animated bounce">Bounce</option>
+        <option value="animated hinge">Hinge</option>
+        <option value="animated flash">Flash</option>
+        <option value="animated pulse">Pulse</option>
+        <option value="animated rubberBand">Rubber Band</option>
+        <option value="animated swing">Swing</option>
+        <option value="animated tada">Tada</option>
+        <option value="animated wobble">Wobble</option>
+        <option value="animated jello">Jello</option>
+    </select>
+    <shake-me/>
+</form>
