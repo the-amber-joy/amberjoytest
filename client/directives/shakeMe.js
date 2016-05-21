@@ -5,9 +5,9 @@ app.directive('helloWorld', function() {
         template: '<p style="background-color:{{color}}">Type a color (word or hex code) in the box to see what happens. I did this while learning how to build Angular directives</p>',
         link: function(scope, elem, attrs) {
             elem.bind('click', function() {
-                elem.css('background-color', 'white');
+                elem.css('background-color', 'gold');
                 scope.$apply(function() {
-                    scope.color = "white";
+                    scope.color = "gold";
                 });
             });
             elem.bind('mouseover', function() {
@@ -17,6 +17,24 @@ app.directive('helloWorld', function() {
     };
 });
 
+app.directive('shakeMe', function() {
+    return {
+        restrict: 'AEXC',
+        replace: true,
+        template: '<div class="{{class}}"><h3>Click Me!</h3></div>',
+        link: function(scope, elem, attrs) {
+            elem.bind('click', function() {
+                elem.css('class', 'animated shake');
+                scope.$apply(function() {
+                    scope.class = "animated shake";
+                });
+            });
+            elem.bind('mouseover', function() {
+                elem.css('cursor', 'pointer');
+            });
+        }
+    };
+});
 
 // app.directive('shakeMe', ['$animate', function($animate) {
 //     return {
