@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 //var answerList = require('../../data/answers.json');
-var answerList = requre('../../data/shamenames.json');
+var answerList = require('../../data/shamenames.json');
 var randomNumber = require('../../data/randomNumberGenerator.js');
 
 router.get('/', function (req, res) {
@@ -14,7 +14,9 @@ router.get('/', function (req, res) {
     var theAnswer = randomNumber(0, answers.length);
 
     //sends one random answer back when called
-    res.send(answers[theAnswer].response);
+    // res.send(answers[theAnswer].response);
+    res.send(answers[theAnswer].name);
+
 
 });
 
