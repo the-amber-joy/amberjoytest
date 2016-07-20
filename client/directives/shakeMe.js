@@ -25,9 +25,9 @@ app.directive('shakeMe', function() {
         link: function(scope, elem, attrs) {
             elem.on('click', function() {
                 scope.$apply(function() {
-                    scope.class = 'animated shake';
+                    scope.class = 'animated bounce';
                 });
-                elem.addClass('animated shake');
+                elem.addClass('animated bounce');
             });
 
             elem.on('mouseover', function() {
