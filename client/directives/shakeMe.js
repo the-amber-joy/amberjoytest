@@ -21,13 +21,13 @@ app.directive('shakeMe', function() {
     return {
         restrict: 'AEXC',
         replace: true,
-        template: '<div class="{{class}}"><h3>Shake Me!</h3></div>',
+        template: '<div class="{{class}}"><h3>Move Me!</h3></div>',
         link: function(scope, elem, attrs) {
             elem.on('click', function() {
                 scope.$apply(function() {
-                    scope.class = 'animated shake';
+                    scope.class = 'animated bounce';
                 });
-                elem.addClass('animated shake');
+                elem.addClass('animated bounce');
             });
 
             elem.on('mouseover', function() {
