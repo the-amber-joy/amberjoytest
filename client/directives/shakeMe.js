@@ -21,7 +21,7 @@ app.directive('shakeMe', function() {
     return {
         restrict: 'AEXC',
         replace: true,
-        template: '<div class="{{class}}"><h3>Move Me!</h3><br><p>Not what I expected here...</p></div>',
+        template: '<div class="{{class}}"><h3>Move Me!</h3></div>',
         link: function(scope, elem, attrs) {
             elem.on('click', function() {
                 scope.$apply(function() {

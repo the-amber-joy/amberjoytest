@@ -6,19 +6,18 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             templateUrl:'views/main.html',
             controller: 'MyCtrl',
         })
-        // .when('/directives', {
-        //     templateUrl:'views/directives.html',
-        //     controller: 'MyCtrl',
-        // })
-        // .when('/answers', {
-        //     templateUrl:'views/answers.html',
-        //     controller: 'BallCtrl'
-        // })
-        // .when('/github-table', {
-        //     templateUrl:'views/github-table.html',
-        //     controller: 'GitCtrl'
-        // });
-        ;
+        .when('/directives', {
+            templateUrl:'views/directives.html',
+            controller: 'MyCtrl',
+        })
+        .when('/answers', {
+            templateUrl:'views/answers.html',
+            controller: 'BallCtrl'
+        })
+        .when('/github-table', {
+            templateUrl:'views/github-table.html',
+            controller: 'GitCtrl'
+        });
 
     $locationProvider.html5Mode(true);
 }]);
@@ -26,16 +25,16 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
 app.controller('MyCtrl', ['$scope', '$location', function ($scope, $location) {
 
-    $scope.goApi = function(){
-        $location.path('/github-table');
-    };
-
-    $scope.go8ball = function(){
-        $location.path('/answers');
-    };
-
-    $scope.goColors = function(){
-        $location.path('/colors');
-    };
+    // $scope.goApi = function(){
+    //     $location.path('/github-table');
+    // };
+    //
+    // $scope.go8ball = function(){
+    //     $location.path('/answers');
+    // };
+    //
+    // $scope.goColors = function(){
+    //     $location.path('/colors');
+    // };
 
 }]);
