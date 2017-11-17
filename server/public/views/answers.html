@@ -1,7 +1,7 @@
 <form class="eightBall" ng-submit="getAnswer()">
     <!--input type="text" placeholder="Got a question?" ng-model="question"-->
     <!--input type="submit" value="Ask the Magic 8 Ball!" class="btn btn-default"-->
-    <input type="submit" value="WHOM SHALL WE SHAME?" class="btn btn-default">
+    <input type="submit" value="Make a post, Patrick!" class="btn btn-default">
 </form>
 
 <!-- <div ng-hide="showAnswer" class="well col-md-4">
@@ -9,6 +9,5 @@
 </div> -->
 
 <well ng-show="showAnswer" class="well col-md-2">
-    Shame on {{answer}}!<br />
-    +1 Dev Point
+    {{post}}
 </well>
